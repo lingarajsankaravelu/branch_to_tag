@@ -36,7 +36,6 @@ def switch_to_master():
     run_cmd("git checkout master")
     run_cmd("git pull")
     log.info("Switched to master branch and pulled")
-    pass
 
 
 # Run's the given git command, throws exception on failure
@@ -79,7 +78,6 @@ def delete_branch(branch_name):
     # Push the deleted branch to remote
     run_cmd("git push origin :"+branch_name)
     log.info("Deleted branch: "+branch_name)
-    pass
 
 
 # Given the list of branches, delete branch one by one
@@ -93,7 +91,6 @@ def delete_branches(branch_names):
             delete_branch(name)
             # Marks the branch as processed and deleted in clean_up_history.json
             history.mark_deleted(name)
-    pass
 
 
 # Given the list of branches, create tag and delete branch one by one
@@ -106,7 +103,6 @@ def create_tags(branch_names):
             tag_name = create_tag(name)
             delete_branch(name)
             history.mark_tagged(name, tag_name)
-    pass
 
 
 if __name__ == '__main__':

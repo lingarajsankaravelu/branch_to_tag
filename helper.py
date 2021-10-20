@@ -15,7 +15,8 @@ class CleanUpHistoryHelper:
         # Reads the data from the json file stored under this project named clean_up_history.json
         base_path = Path(__file__).parent
         self.filePath = (base_path / "clean_up_history.json").resolve()
-        self.json = load(open(self.filePath))
+        with open(self.filePath, 'r') as file_object:
+            self.json = load(file_object)
         # parse different key values from cleanup status map
         self.processed = self.json[self.KEY_PROCESSED]
         self.deleted = self.json[self.KEY_DELETED]
@@ -36,7 +37,6 @@ class CleanUpHistoryHelper:
         if name not in self.deleted:
             self.deleted.append(name)
         self.write_to_file__()
-        pass
 
     # Marks the  branch as processed,tagged and deleted and write it to clean_up_history.json file
     def mark_tagged(self, branch_name, tag_name):
@@ -44,7 +44,6 @@ class CleanUpHistoryHelper:
         self.deleted.append(branch_name)
         self.tagged.append(tag_name)
         self.write_to_file__()
-        pass
 
     def write_to_file__(self):
         self.json[self.KEY_PROCESSED] = self.processed
@@ -52,4 +51,3 @@ class CleanUpHistoryHelper:
         self.json[self.KEY_TAGGED] = self.tagged
         with open(self.filePath, 'w') as outfile:
             dump(self.json, outfile, indent=4)
-        pass
