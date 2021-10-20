@@ -51,5 +51,5 @@ class CleanUpHistoryHelper:
         self.json[self.KEY_DELETED] = self.deleted
         self.json[self.KEY_TAGGED] = self.tagged
         with open(self.filePath, 'w') as outfile:
-            dump(self.json, outfile)
+            dump(self.json, outfile, indent=4)
         pass
