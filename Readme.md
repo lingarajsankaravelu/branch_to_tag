@@ -39,14 +39,14 @@ TAG_PREFIX = "archive"
 ```
 
 ## Run   
-    Main.py  
+    main.py  
   
 ## clean_up_history.json  
 Either the script is creating tag or deleting a given a branch. It will be recorded in the clean_up_history.json for future reference.   
 ```yaml  
 {  
  //name of the branch which are already processed by the script  
- "processed": ["master"],  
+ "processed": [],  
  // name of the branch which are deleted 
  "deleted": [], 
  //name of the tags created by the script 
