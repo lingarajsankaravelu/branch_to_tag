@@ -1,6 +1,6 @@
 # BranchToTag  
 ### Python based script to create git tags for the given branch names.   
-Recently I had to cleanup a Git repository with some 200+ branches, Where we also wanted to archive few branches as tags.   
+Recently I had to come up with a less time consuming way to cleanup a Git repository with some 200+ branches, Where we also wanted to archive few branches as tags. 
   
 ## Features  
    - Create git Tags and delete the tagged branches.  
